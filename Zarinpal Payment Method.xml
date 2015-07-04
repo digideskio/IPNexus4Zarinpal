@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin name="Zarinpal Payment Method" version_long="10000" version_human="1.0.0" author="Sijad aka Mr.Wosi" website="http://skinod.com" update_check="http://skinod.com/updatechk/sodzarinpalpaymentmethod"><hooks/><htmlFiles/><cssFiles/><jsFiles/><resourcesFiles/><lang><word key="gateway__Zarinpal" js="0">Zarinpal</word><word key="zarinpal_merchant_id" js="0">Merchant ID</word></lang><versions><version long="10000" human="1.0.0"><![CDATA[//<?php
+<plugin name="Zarinpal Payment Method" version_long="10000" version_human="1.0.0" author="Sijad aka Mr.Wosi" website="http://skinod.com" update_check="http://skinod.com/updatechk/sodzarinpalpaymentmethod"><hooks/><htmlFiles/><cssFiles/><jsFiles/><resourcesFiles/><lang><word key="gateway__Zarinpal" js="0">Zarinpal</word><word key="zarinpal_merchant_id" js="0">Merchant ID</word><word key="zarinpal_zarin_gate" js="0">Pay Via Zaringate</word></lang><versions><version long="10000" human="1.0.0"><![CDATA[//<?php
 
 
 /* To prevent PHP errors (extending class does not exist) revealing path */

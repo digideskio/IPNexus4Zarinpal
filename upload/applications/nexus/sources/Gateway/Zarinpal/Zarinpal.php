@@ -66,7 +66,8 @@ class _Zarinpal extends \IPS\nexus\Gateway
 		$res = $this->api($data);
 
 		if($res['Status'] == 100) {
-			\IPS\Output::i()->redirect( \IPS\Http\Url::external( 'https://www.zarinpal.com/pg/StartPay/'.$res['Authority'] ) );
+			$settings = json_decode( $this->settings, TRUE );
+			\IPS\Output::i()->redirect( \IPS\Http\Url::external( 'https://www.zarinpal.com/pg/StartPay/'.$res['Authority'].''.($settings['zarin_gate']?'/ZarinGate':'') ) );
 		}
 
 		throw new \RuntimeException;
@@ -98,6 +99,7 @@ class _Zarinpal extends \IPS\nexus\Gateway
 	{
 		$settings = json_decode( $this->settings, TRUE );
 		$form->add( new \IPS\Helpers\Form\Text( 'zarinpal_merchant_id', $this->id ?$settings['merchant_id']:'', TRUE ) );
+		$form->add( new \IPS\Helpers\Form\YesNo( 'zarinpal_zarin_gate', $this->id ?$settings['zarin_gate']:'', TRUE ) );
 	}
 	
 	/**
@@ -108,12 +110,7 @@ class _Zarinpal extends \IPS\nexus\Gateway
 	 * @throws	\InvalidArgumentException
 	 */
 	public function testSettings( $settings )
-	{
-		$settings['merchant_id'] = trim($settings['merchant_id']);
-		if(empty($settings['merchant_id'])) {
-			throw new \InvalidArgumentException('zarinpla_no_merchant_id');
-		}
-		
+	{		
 		return $settings;
 	}
 
